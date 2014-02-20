@@ -7,7 +7,7 @@ ModInfo is a library which allows a mod for Minecraft to provide basic, anonymou
 * The version, language, and screen size of Minecraft
 * Whether Minecraft is in Singleplayer or Multiplayer mode
 
-No personally identifiable information is sent by ModInfo at any time.  An anonymous id is constructed and placed within a .minecraft/config/ModInfo.cfg file.  This id can be reset at anytime by simply deleting the ModInfo.cfg file.  A new id will be constructed the next time the file is created.
+No personally identifiable information is sent by ModInfo at any time.  An anonymous id is constructed using a random "salt" value placed within the **.minecraft/config/ModInfo.cfg** file.  This id can be altered at anytime by changing the _salt_ value in the **ModInfo.cfg** file, or by deleting the file altogether.  A new salt value will be generated the next time the file is created.
 
 Opt Out
 =======
@@ -16,7 +16,7 @@ Please don't!  Mod developers rarely get good information on how their hard work
 
 But if you really don't want that tiny anonymous message sent, here is how to Opt Out:
 
-1. Find the name of the mod in the .minecraft/config/ModInfo.cfg file
+1. Find the name of the mod in the **.minecraft/config/ModInfo.cfg** file
 2. Change the property value for the mod's name from "true" to "false" (without the quotes).  
 3. The next time the mod tries to use ModInfo, a final "opt-out" message will be sent and a confirmation number will be added to the mod's property value.
 4. If you change your mind, simply set the property value to "true" to let ModInfo send a message again.
