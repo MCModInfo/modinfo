@@ -1,6 +1,6 @@
 # ![ModInfo](http://i.imgur.com/sCEmgbV.png) ModInfo
 
-Thank you for supporting your mod developer!
+Thank you for supporting your Minecraft mod developer!
 
 ModInfo is a library which allows a mod for Minecraft to provide some simple, **anonymous** information to the mod developer about Minecraft and their mod. This is done by sending a simple HTTP message to a Google Analytics server. 
 
@@ -32,7 +32,9 @@ The message above includes:
 
 ### Error Reporting
 
-In software, it is very common for bugs to go unreported. With ModInfo, a mod developer can choose to have a message sent when his mod experiences an error.  This kind of error reporting is common with commercial games and consoles, but it has never been readily available to mod developers until now.
+In software, it is very common for bugs to go unreported. With ModInfo, a mod developer can choose to have a message sent when his mod experiences an error.  This kind of error reporting is common with commercial games and consoles, but it has never been readily available to Minecraft od developers until now.
+
+Real-time error reporting by ModInfo means the mod developer can react to problems quickly and start preparing fixes right away.
 
 ### Anonymous ID
 
