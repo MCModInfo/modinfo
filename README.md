@@ -4,7 +4,11 @@ Thank you for supporting your mod developer!
 
 ModInfo is a library which allows a mod for Minecraft to provide some simple, **anonymous** information to the mod developer about Minecraft and their mod. This is done by sending a simple HTTP message to a Google Analytics server. 
 
-Some of the really useful information for a mod developer is knowing what version of their mod is being used, the version of Minecraft which needs to be supported, and what language translations may be needed.
+Some of the really useful information for a mod developer is:
+* Knowing what version of their mod is being used
+* Knowing which versions of Minecraft needs to be supported
+* Learning what the preferred language of their users may be
+* Getting error reports when something goes wrong in their code
 
 ## Privacy Guaranteed
 
@@ -12,14 +16,23 @@ No personally identifiable information is sent by ModInfo at any time. We take a
 
 Here is a typical sample message sent by ModInfo:
 
-    http://www.google-analytics.com/collect?v=1&tid=UA-XXXXXXXX-1&cid=94e4597e&t=appview&sr=1920x1200&ul=en_US&an=coolmod&av=1.0&cd=Windows+7,Minecraft+1.7.2,Singleplayer
+    POST /collect HTTP/1.1
+    Host: www.google-analytics.com
+    
+    v=1&tid=UA-XXXXXXXX-1&cid=b432-026d-08239-29ba&t=appview&an=CoolMod&av=1.0.0
+    &cd=Windows+7%2C+Minecraft+1.7.2%2C+Singleplayer&sr=1920x1200&ul=en_US
+
 
 The message above includes:
 * The mod developer's Google Analytics id (tid)
-* An anonymous client id (cid) which can be altered by you at any time (see Anonymous ID below)
+* An anonymous client id (cid) which can be reset by you at any time (see Anonymous ID below)
 * The mod id (an) and version (av)
-* Minecraft screen size (sr) and language (ul)
 * OS name, Minecraft version, and game mode (cd)
+* Minecraft screen size (sr) and language (ul)
+
+### Error Reporting
+
+In software, it is very common for bugs to go unreported. With ModInfo, a mod developer can choose to have a message sent when his mod experiences an error.  This kind of error reporting is common with commercial games and consoles, but it has never been readily available to mod developers until now.
 
 ### Anonymous ID
 
