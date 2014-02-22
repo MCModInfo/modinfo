@@ -20,27 +20,32 @@ Here is a typical sample message sent by ModInfo:
     Host: www.google-analytics.com
     
     v=1&tid=UA-XXXXXXXX-1&cid=b432-026d-08239-29ba&t=appview&an=CoolMod&av=1.0.0
-    &cd=Windows+7%2C+Minecraft+1.7.2%2C+Singleplayer&sr=1920x1200&ul=en_US
+    &cd=Minecraft+1.7.2%2C+Singleplayer&sr=1920x1200&ul=en_US
 
 
 The message above includes:
 * The mod developer's Google Analytics id (tid)
-* An anonymous client id (cid) which can be reset by you at any time (see Anonymous ID below)
+* An anonymous client id (cid)
 * The mod id (an) and version (av)
-* OS name, Minecraft version, and game mode (cd)
-* Minecraft screen size (sr) and language (ul)
+* Minecraft version, game mode (cd), screen size (sr), and language (ul)
 
 ### Error Reporting
 
-In software, it is very common for bugs to go unreported. With ModInfo, a mod developer can choose to have a message sent when his mod experiences an error.  This kind of error reporting is common with commercial games and consoles, but it has never been readily available to Minecraft od developers until now.
+In software, it is very common for bugs to go unreported. With ModInfo, a mod developer can choose to have a message sent when his mod experiences an error.  This kind of error reporting is common with commercial games and consoles, but it has never been readily available to Minecraft mod developers until now.
 
 Real-time error reporting by ModInfo means the mod developer can react to problems quickly and start preparing fixes right away.
 
 ### Anonymous ID
 
-The anonymous id (cid in the sample message above) is constructed using a random "salt" value placed within the **.minecraft/config/ModInfo.cfg** file.  
+The anonymous id (cid in the sample message above) is constructed using a random "salt" value placed within the **.minecraft/config/(modname)_ModInfo.cfg** file.  
 
-This anonymous id can be altered at anytime by changing the _salt_ value in the **ModInfo.cfg** file, or by deleting the file altogether.  A new salt value will be generated the next time the file is created.
+This anonymous id can be altered at anytime by changing the _salt_ value in the **(modname)_ModInfo.cfg** file, or by deleting the file altogether.  A new salt value will be generated the next time the file is created.
+
+### Verbose messages
+
+If you want to see exactly what messages are being sent by a mod, set the _verbose_ value in the **.minecraft/config/(modname)_ModInfo.cfg** file to "true".  The messages will be shown in your console window or log files.  
+
+Note: The mod developer decides when messages are sent. If you have questions about the frequency of messages sent by a mod, contact the mod developer directly.
 
 ### You Can Opt Out
 
@@ -48,7 +53,7 @@ But please don't!  Mod developers rarely get good information on how their hard 
 
 But if you really don't want that helpful message sent, here is how to Opt Out:
 
-1. Find the name of the mod in the **.minecraft/config/ModInfo.cfg** file
+1. Find the name of the mod in the **.minecraft/config/(modname)_ModInfo.cfg** file
 2. Change the enabled value for the mod's name from **true** to **false**.  
 3. The next time the mod tries to use ModInfo, a final "opt-out" message will be sent and a confirmation number will be added to the mod's property value.
 4. If you change your mind, simply set the property value to **true** to let ModInfo send a message again.
